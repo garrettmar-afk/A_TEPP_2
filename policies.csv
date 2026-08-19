@@ -1,0 +1,36 @@
+policy_id,category,policy_title,policy_text
+P001,Returns,Damaged Item Return,Damaged items may be returned within 30 days for a replacement or refund.
+P002,Billing,Duplicate Charge,Duplicate charges are investigated and refunded when confirmed.
+P003,Technical,Troubleshooting,Ask the customer to restart the device and verify connections before escalation.
+P004,Returns,30-Day Return,Unused items can be returned within 30 days with proof of purchase.
+P005,Billing,Refund Processing,Refunds are processed within 5-7 business days after approval.
+P006,Technical,Device Support,"If troubleshooting fails, escalate to technical support."
+P007,Billing,Order Cancellation,Orders can be canceled before shipment begins.
+P008,Returns,Damaged Item Return,Damaged items may be returned within 30 days for a replacement or refund.
+P009,Billing,Duplicate Charge,Duplicate charges are investigated and refunded when confirmed.
+P010,Technical,Troubleshooting,Ask the customer to restart the device and verify connections before escalation.
+P011,Returns,30-Day Return,Unused items can be returned within 30 days with proof of purchase.
+P012,Billing,Refund Processing,Refunds are processed within 5-7 business days after approval.
+P013,Technical,Device Support,"If troubleshooting fails, escalate to technical support."
+P014,Billing,Order Cancellation,Orders can be canceled before shipment begins.
+P015,Returns,Damaged Item Return,Damaged items may be returned within 30 days for a replacement or refund.
+P016,Billing,Duplicate Charge,Duplicate charges are investigated and refunded when confirmed.
+P017,Technical,Troubleshooting,Ask the customer to restart the device and verify connections before escalation.
+P018,Returns,30-Day Return,Unused items can be returned within 30 days with proof of purchase.
+P019,Billing,Refund Processing,Refunds are processed within 5-7 business days after approval.
+P020,Technical,Device Support,"If troubleshooting fails, escalate to technical support."
+P021,Billing,Order Cancellation,Orders can be canceled before shipment begins.
+P022,Returns,Damaged Item Return,Damaged items may be returned within 30 days for a replacement or refund.
+P023,Billing,Duplicate Charge,Duplicate charges are investigated and refunded when confirmed.
+P024,Technical,Troubleshooting,Ask the customer to restart the device and verify connections before escalation.
+P025,Returns,30-Day Return,Unused items can be returned within 30 days with proof of purchase.
+P026,Billing,Refund Processing,Refunds are processed within 5-7 business days after approval.
+P027,Technical,Device Support,"If troubleshooting fails, escalate to technical support."
+P028,Billing,Order Cancellation,Orders can be canceled before shipment begins.
+P029,Returns,Damaged Item Return,Damaged items may be returned within 30 days for a replacement or refund.
+P030,Billing,Duplicate Charge,Duplicate charges are investigated and refunded when confirmed.
+P031,Technical,Troubleshooting,Ask the customer to restart the device and verify connections before escalation.
+P032,Returns,30-Day Return,Unused items can be returned within 30 days with proof of purchase.
+P033,Billing,Refund Processing,Refunds are processed within 5-7 business days after approval.
+P034,Technical,Device Support,"If troubleshooting fails, escalate to technical support."
+P035,Billing,Order Cancellation,Orders can be canceled before shipment begins.
