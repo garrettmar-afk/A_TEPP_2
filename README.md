@@ -5,6 +5,23 @@ Replaces the manual triage-and-route step at Northstar Support Co. with an
 Orchestrator/Subagent architecture, using a Reviewer/Critic agent as an
 exception-based stand-in for the supervisor's second look.
 
+## Fixes in this fork
+
+This fork corrects a few bugs found while getting the project running locally:
+
+- **`config.py`** — `data_path` used an undefined `path()` function and a placeholder
+  string instead of `Path(...)`; also, `LOG_FILE` was referenced in `tools.py` but never
+  defined in `config.py`. Both are now fixed.
+- **`requirements.txt`** — added `pandas`, which `tools.py` and `main.py` import but
+  which was missing from the pinned dependency list.
+- **`.gitignore`** — added `.env`, `__pycache__/`, `venv/`, and `tool_log.txt`. `.env`
+  in particular was not previously excluded, meaning API keys could have been committed
+  by accident.
+- Added `Northstar_Code_Reference.docx` — a line-by-line reference doc for every file
+  in the project.
+- Added `README.md` itself — the original repo had no README. This one documents how
+  the pipeline works, what each file does, setup/run instructions, and the team roster.
+
 ## How it works
 
 A ticket goes through three specialist agents, coordinated by
