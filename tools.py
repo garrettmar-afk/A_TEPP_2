@@ -2,21 +2,38 @@ import pandas as pd
 
 from langchain.tools import tool
 
-from config import tickets_file, policies_file
+from config import tickets_file, policies_file, LOG_FILE
 
 
 
 # LOAD CSV DATA
 
-
 def load_tickets():
-    """Load customer tickets from tickets.csv."""
+    """Load customer tickets."""
     return pd.read_csv(tickets_file)
 
 
 def load_policies():
-    """Load support policies from policies.csv."""
+    """Load support policies."""
     return pd.read_csv(policies_file)
+
+
+
+# LOGGING
+
+
+def log_tool_call(tool_name, arguments, result):
+    """
+    Log every tool call, its arguments,
+    and the returned result.
+    """
+
+    with open(LOG_FILE, "a", encoding="utf-8") as file:
+
+        file.write("\n" + "=" * 60 + "\n")
+        file.write(f"Tool: {tool_name}\n")
+        file.write(f"Arguments: {arguments}\n")
+        file.write(f"Result:\n{result}\n")
 
 
 
@@ -26,8 +43,7 @@ def load_policies():
 @tool
 def get_ticket(ticket_id: str) -> str:
     """
-    Look up a customer ticket using its ticket ID.
-    Returns the customer's name, email, and message.
+    Look up a customer ticket.
     """
 
     tickets = load_tickets()
@@ -38,16 +54,33 @@ def get_ticket(ticket_id: str) -> str:
     ]
 
     if ticket.empty:
-        return f"No ticket found for {ticket_id}."
+
+        result = f"No ticket found for {ticket_id}."
+
+        log_tool_call(
+            "get_ticket",
+            {"ticket_id": ticket_id},
+            result
+        )
+
+        return result
 
     row = ticket.iloc[0]
 
-    return (
+    result = (
         f"Ticket ID: {row['ticket_id']}\n"
         f"Customer Name: {row['customer_name']}\n"
         f"Customer Email: {row['customer_email']}\n"
         f"Customer Message: {row['customer_message']}"
     )
+
+    log_tool_call(
+        "get_ticket",
+        {"ticket_id": ticket_id},
+        result
+    )
+
+    return result
 
 
 
@@ -57,7 +90,7 @@ def get_ticket(ticket_id: str) -> str:
 @tool
 def search_policy(category: str) -> str:
     """
-    Search policies.csv for the policy matching a category.
+    Search policies.csv for the matching category.
     """
 
     policies = load_policies()
@@ -71,7 +104,16 @@ def search_policy(category: str) -> str:
     ]
 
     if matches.empty:
-        return f"No policy found for category: {category}"
+
+        result = f"No policy found for category: {category}"
+
+        log_tool_call(
+            "search_policy",
+            {"category": category},
+            result
+        )
+
+        return result
 
     results = []
 
@@ -84,17 +126,24 @@ def search_policy(category: str) -> str:
             f"Policy Text: {row['policy_text']}"
         )
 
-    return "\n\n".join(results)
+    result = "\n\n".join(results)
+
+    log_tool_call(
+        "search_policy",
+        {"category": category},
+        result
+    )
+
+    return result
+
 
 
 # ALL POLICIES TOOL
 
-
 @tool
 def get_all_policies() -> str:
     """
-    Return all policies from policies.csv.
-    Useful when the category is unclear.
+    Return all policies.
     """
 
     policies = load_policies()
@@ -110,4 +159,17 @@ def get_all_policies() -> str:
             f"Policy Text: {row['policy_text']}"
         )
 
-    return "\n\n".join(results)
+    result = "\n\n".join(results)
+
+    log_tool_call(
+        "get_all_policies",
+        {},
+        result
+    )
+
+    return result
+   
+        
+
+    
+            
